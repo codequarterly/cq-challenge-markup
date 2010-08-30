@@ -1,0 +1,25 @@
+<body>
+    <p>This is a regular paragraph.
+    <note>
+        <p>This is an embedded note.</p>
+        <ol>
+            <li>
+                <p>item 1</p>
+            </li>
+            <li>
+                <p>item 2</p>
+            </li>
+        </ol>
+        <p>And bullet list.</p>
+        <ul>
+            <li>
+                <p>item 1</p>
+            </li>
+            <li>
+                <p>item 2</p>
+            </li>
+        </ul>
+        <p>Back to regular.</p>
+    </note>
+     Here's the rest of the outer paragraph.</p>
+</body>

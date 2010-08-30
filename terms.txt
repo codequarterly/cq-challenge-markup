@@ -1,0 +1,124 @@
+-*- mode: markup; -*-
+
+* CODE CHALLENGE TERMS & CONDITIONS
+
+Code Quarterly is hosting its first Code Challenge, seeking innovative
+code to be shared on our site. The Code Challenge is not a contest.
+There are no prizes and we will not award any monetary compensation or
+judge anyone a “winner” in connection with the Code Challenge. Our
+goal is to provide a forum in which to share new and creative code
+with the community.
+
+By sending us your code, you agree to the following terms and
+conditions:
+
+** Publication of Your Code & Royalty-Free License
+
+We will post all eligible code entries (“Submissions”) on our website
+as Submissions to the Code Challenge. In connection with each
+Submission, we will post the name of the author. This may be your full
+name or any nickname, screen-name or pseudonym you select. Submissions
+are eligible provided that they comply with our Code Submission
+Standards, described below.
+
+By providing us with your Submission, you are granting us (including
+our employees, managers, members, officers, agents, licensees,
+assigns, and affiliated entities) a non-exclusive, non-revocable,
+royalty-free license to use your Submission in any manner and in any
+and all media whether now known or hereafter devised throughout the
+universe in perpetuity. We may publish all or part of your Submission
+in one or more print editions of our Code Quarterly magazine. You
+further grant us permission to disclose, display, publish, distribute,
+use, print and reprint your name in connection with your Submission
+and to use it in advertising and promotions relating to Code
+Quarterly. You agree that we may alter or modify your Submission and
+provide critique or criticism of it.
+
+You agree and understand that we do not control or track who views our
+website or require that viewers register or log in, and that by virtue
+of publication on our website your Submission will become accessible
+to an unlimited number of third parties. We are not liable for any use
+made by a third party of your Submission.
+
+** Ownership and Originality
+
+You represent that you are the author of the Submission, that you own
+all applicable copyrights and/or patents associated with your
+Submission, and that our publication of your Submission will not
+infringe on the rights of any third party. You further represent that
+if your Submission includes any material licensed to you as open
+source, you have included any required attributions or conditions in
+your Submission.
+
+Please do not submit code that you have previously assigned to others
+or which belongs to an employer (past or present). Please do not
+submit code that constitutes an unlawful derivative or work belonging
+to another, including copies or reverse engineering of others’ code.
+
+** Code Submission Standards
+
+There are no restrictions on the type of code you can submit. However,
+we reserve the right not to publish, or to remove from our site, any
+Submission containing the following:
+
+  - Harassing, bullying, disparaging, hateful, violent, pornographic,
+    indecent or otherwise offensive material, as defined in our sole
+    discretion
+
+  - Potentially harmful material, such as viruses, spyware or malware
+
+  - Commercial material, such as code containing advertisements or
+    excessive self-promotion
+
+  - Material that infringes on intellectual property rights, publicity
+    rights, or privacy rights of any kind
+
+  - Illegal or prohibited material under the laws of any jurisdiction
+
+  - Submissions that are too long, or large numbers of Submissions
+    from the same author (you are welcome to submit more than one
+    piece of code, but please don't spam us with every piece of code
+    you've written)
+
+  - Any code that we determine to be insufficiently original or
+    innovative, in our sole discretion
+
+** Indemnification
+
+You agree that, in the event that either you or Code Quarterly is
+subjected to any adverse claim as a result of its publication of your
+Submission, you will indemnify, defend with counsel reasonably
+acceptable to Code Quarterly, and hold Code Quarterly free and
+harmless from and against any claim, damage (including , without
+limitation punitive or exemplary damages), injury, demand, cost, loss,
+liability (including without limitation, strict liability), expense,
+penalty, fee, cause of action, settlement, proceeding (whether civil,
+criminal, administrative or investigative), including attorneys’,
+consultants’ and experts’ fees, and disbursements incurred in
+investigating, defending, settling or prosecuting any claim or
+proceeding or enforcing any term of this Indemnity, court costs,
+judgments, fines and amounts paid in settlement arising out of or in
+any way connected with your Submission.
+
+** Infringement Complaints
+
+Code Quarterly is firmly committed to protecting intellectual property
+rights. If you believe that anything we publish as part of the Code
+Challenge infringes on your rights, please notify us immediately at
+\email{code@codequarterly.com}.
+
+Please provide us with as much information about your claim as
+possible, including the following:
+
+  # Your name and contact information
+
+  # Author of infringing Code Challenge Submission
+
+  # Date of Code Quarterly’s publication of infringing Code Challenge
+    Submission
+ 
+  # Nature of infringement (e.g., copyright infringement, patent
+    infringement)
+
+  # Description of your rights in the infringing work
+

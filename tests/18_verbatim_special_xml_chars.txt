@@ -1,0 +1,7 @@
+This a paragraph with a < and and > and an &.
+
+   /* Some verbatim code */
+
+   if (i < 10) {
+     &x.foo > 20 ? "foo" : "bar";
+   }

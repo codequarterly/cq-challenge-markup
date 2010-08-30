@@ -1,0 +1,8 @@
+<body>
+    <p>This a paragraph with a &lt; and and &gt; and an &amp;.</p>
+    <pre>/* Some verbatim code */
+
+if (i &lt; 10) {
+  &amp;x.foo &gt; 20 ? "foo" : "bar";
+}</pre>
+</body>

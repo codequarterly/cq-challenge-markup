@@ -1,0 +1,13 @@
+This is a regular paragraph.\note{This is an embedded note.
+
+  # item 1
+
+  # item 2
+
+And bullet list.
+
+  - item 1
+
+  - item 2
+
+Back to regular.} Here's the rest of the outer paragraph.

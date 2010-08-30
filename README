@@ -1,0 +1,21 @@
+The files in this directory are those you'll need to participate in
+inaugural the Code Quarterly Code Challenge.
+
+  - instructions.txt: Instructions for this challenge.
+
+  - markup-spec.txt: The Markup specification
+
+  - tests/: a bunch of test cases you can use to test your
+    implementation. (Additionally all the .txt files in this directory
+    as well as this README are examples of real-world Markup files.)
+
+  - terms.txt: The fine print you’ll have to agree to before you
+    submit your code.
+
+When you’re done, you can submit your code here:
+
+  http://www.codequarterly.com/code-challenges/markup/submit.html
+
+On that page, after agreeing to the legal terms, you’ll can either
+upload an archive (tar.gz or zip) containing your code or the URL of a
+commit on a publicly available GitHub repository.

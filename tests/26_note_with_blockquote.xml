@@ -1,0 +1,11 @@
+<body>
+    <p>This is a regular paragraph.
+    <note>
+        <p>This is an embedded note.</p>
+        <blockquote>
+            <p>This is a blockquote in the note.</p>
+        </blockquote>
+        <p>Back to regular.</p>
+    </note>
+     Here's the rest of the outer paragraph.</p>
+</body>

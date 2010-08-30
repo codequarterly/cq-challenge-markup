@@ -1,0 +1,23 @@
+* This is a primary header.
+
+** This is a secondary header.
+
+*** This is a tertiary header.
+
+**** This is a quaternary header.
+
+***** This is a quinary header.
+
+****** This is a senary header.
+
+******* This is a septenary header.
+
+******** This is a octonary header.
+
+********* This is a nonary header.
+
+********** This is a denary header.
+
+*********** There's no name for what kind of header this is.
+
+************ This is a duodenary header.

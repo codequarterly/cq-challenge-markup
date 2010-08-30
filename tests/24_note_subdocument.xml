@@ -1,0 +1,7 @@
+<body>
+    <p>This is a regular paragraph.
+    <note>
+        <p>This is an embedded note.</p>
+    </note>
+     Here's the rest of the paragraph.</p>
+</body>

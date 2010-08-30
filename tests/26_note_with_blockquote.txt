@@ -1,0 +1,5 @@
+This is a regular paragraph.\note{This is an embedded note.
+
+  This is a blockquote in the note.
+
+Back to regular.} Here's the rest of the outer paragraph.
