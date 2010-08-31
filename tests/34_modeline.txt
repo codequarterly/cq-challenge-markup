@@ -1,0 +1,3 @@
+-*- mode: markup; -*-
+
+This is a paragraph.

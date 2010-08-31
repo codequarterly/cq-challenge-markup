@@ -28,7 +28,7 @@ for good measure.
 As mentioned above, the Markup grammar defines a mapping between a
 Markup document and an abstract syntax tree. The tree is built out of
 tagged elements and strings.\note{Markup was originally developed in
-Lisp where the obvious representation for a Markup document is as list
+Lisp where the obvious representation for a Markup document is as
 s-expressions, with each tree represented by a list whose first
 element is a symbol indicating the tree’s tag.
 
@@ -222,6 +222,19 @@ otherwise mark the paragraph as a header.
    brace: \}
 
      \# This is a block quote paragraph starting with #, not a list.
+
+*** One last (optional) convenience
+
+In the real world, Markup documents are often (usually) edited in
+Emacs. Emacs has a mechanism whereby a a line starting with \code{-*-}
+indicates a \i{mode line} which tells emacs about how to edit the
+file. For instance, in the Markup sources of this specification, the
+first line is:
+
+   -*- mode: markup; -*-
+
+A Markup parser can choose to strip such modelines at the top level of
+a document to save having to strip them out later in processing.
 
 ** Trivial XML backend
 

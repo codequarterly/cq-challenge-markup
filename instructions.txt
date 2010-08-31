@@ -108,20 +108,22 @@ gracefully with bad input, more power to you.
 Great! There are two ways to get started. You can download an archive
 containing these instructions, as well as all the specification files
 and test cases you’ll need. The archive is available in [tar.gz] and
-[zip]. Or, if you have a [GitHub] account and don’t mind operating
-somewhat in public, you fork our project at
-\url{http://github.com/codequarterly/markup_challenge/}. It contains
-the same files you would get if you downloaded the challenge archive.
-You can then track the history of your development using git, which
-may be just as interesting as your final result.
+[zip]. Or, if you have a GitHub account and don’t mind operating
+somewhat in public, you fork our project at:
+
+  \url{http://github.com/codequarterly/cq-challenge-markup/}
+
+It contains the same files you would get if you downloaded the
+challenge archive. You can then track the history of your development
+using git, which may be just as interesting as your final result.
 
 When you’re ready to submit your code, you’ll need to create either a
 \code{tar.gz}, or a \code{zip} archive containing all your files and
-[upload it here|submit] or [submit] the URL of a [GitHub] commit
+[upload it here|submit] or [submit] the URL of a GitHub commit
 containing the code you want to submit.
 
-In the meantime you can leave a question or comment on our [comments]
-page.
+In the meantime you can leave a question or comment or discuss this
+challenge with other participants on our [comments] page.
 
 ** The fine print
 
@@ -137,9 +139,9 @@ Good luck and happy coding!
 
 [markup specification] <markup-spec.html>
 
-[tar.gz] <code_challenge_markup.tar.gz>
+[tar.gz] <cq-challenge-markup.tar.gz>
 
-[zip] <code_challenge_markup.zip>
+[zip] <cq-challenge-markup.zip>
 
 [submit] <submit.html>
 
