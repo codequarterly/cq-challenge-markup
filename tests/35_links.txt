@@ -1,0 +1,5 @@
+Regular [text] with [links|foo] blah.
+
+[text] <http://www.example.com/text/>
+
+[foo] <http://www.example.com/foo/>

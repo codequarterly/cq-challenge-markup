@@ -1,0 +1,9 @@
+<body>
+    <p>Regular <link>text</link> with <link>links<key>foo</key></link> blah.</p>
+    <link_def>
+        <link>text</link><url>http://www.example.com/text/</url>
+    </link_def>
+    <link_def>
+        <link>foo</link><url>http://www.example.com/foo/</url>
+    </link_def>
+</body>
