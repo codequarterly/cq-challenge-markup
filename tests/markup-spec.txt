@@ -1,0 +1,266 @@
+-*- mode: markup; -*-
+
+* Markup Specification
+
+Markup is a text markup language primarily useful for prose documents
+such as books and articles. It is designed to be editable in a plain
+text editor\note{At least to the extent that Emacs can be considered a
+plain text editor.} and to allow for arbitrary logical markup. The
+grammar of a Markup file is defined in terms of a mapping to an
+abstract syntax tree which can then be rendered into a number of
+formats, e.g. HTML, PDF, TeX, RTF, etc.
+
+** Syntax
+
+Markup files consist of Unicode text encoded in UTF-8. Lines can be
+terminated with carriage return (U+000D), carriage-return/line-feed
+(U+000D U+000A), or line feed (U+000A). Tab characters (U+0009) are
+equivalent to eight spaces. A blank line (which has a syntactic
+meaning to be described later) is defined as two consecutive
+end-of-line sequences possibly with white space between
+them.\note{Trailing white space has no meaning in Markup and do not
+need to be preserved by a Markup processor.} The basic syntax is
+similar to Markdown and reStructuredText with a bit of TeX thrown in
+for good measure.
+
+** Grammar
+
+As mentioned above, the Markup grammar defines a mapping between a
+Markup document and an abstract syntax tree. The tree is built out of
+tagged elements and strings.\note{Markup was originally developed in
+Lisp where the obvious representation for a Markup document is as
+s-expressions, with each tree represented by a list whose first
+element is a symbol indicating the tree’s tag.
+
+   (:body
+     (:h1 "This is a header")
+     (:p "This is a paragraph")
+     (:p "This is another paragraph with some" (:i "italic") " text in it."))
+
+This kind of tree structure also has an obvious representation in XML
+or HTML:
+
+   <body>
+     <h1>This is a header</h1>
+     <p>This is a paragraph</p>
+     <p>This is another paragraph with some <i>italic</i> text in it.</p>
+   </body>
+
+} The abstract syntax tree is rooted in a single element whose tag is
+\code{body}. Its children are the elements described below.\note{The
+element names were, as will be obvious to anyone who knows HTML,
+chosen so that a trivial mapping from Markup to HTML gives a useful
+result but other than that pleasant coincidence, Markup defines no
+particular semantics for Markup documents.}
+
+*** Normal paragraphs
+
+Normal paragraphs are simply blocks of text separated by one or more
+blank lines. They can contain single line breaks, which are converted
+to spaces during parsing. The body of a paragraph can contain tagged
+markup as discussed below. The tag of a paragraph node is \code{p}.
+
+*** Headers
+
+Headers are paragraphs marked as in Emacs outline-mode, with leading
+\code{*}’s followed by a single space. The more stars the lower in the
+hierarchy the header. The content of the header is everything after
+the \code{*} and the space and is otherwise parsed just like a
+paragraph. Header nodes are tagged with \code{h\i{n}} where \i{n} is
+the number of stars.
+
+*** Block quotes
+
+Block quotes are one of three kinds of “sections” indicated by
+indentation. A section ends at the end of the file or by the
+occurrence of a less-indented non-blank line. Sections can also be
+nested. A block quote is demarcated by two spaces of indentation
+relative to the enclosing section and can contain their own
+paragraphs, headers, lists, and verbatim sections. Block
+quote nodes are tagged with \code{blockquote}.
+
+*** Verbatim sections
+
+Verbatim sections are indented three spaces relative to the enclosing
+section. Within a verbatim section all text is captured exactly as is.
+Verbatim sections are tagged with \code{pre}.
+
+*** Lists
+
+Lists are demarcated by two spaces of indentation followed by a list
+marker, either ‘\code{#}’ for an ordered (i.e. numbered) list or
+‘\code{-}’ for an unordered (i.e. bulleted) list. An ordered list is
+tagged with \code{ol} and an unordered list with \code{ul}.
+
+The list marker must be followed by a space and then the text of the
+first list item. List items are tagged with \code{li} and can contain
+multiple paragraphs, the contents of which are indented to line up
+under first character of the beginning of the list item. Subsequent
+items are marked with another list marker in the same column as the
+original list marker and another space. For example:
+
+   This is a regular paragraph.
+
+     # This is the first item of a list consisting of one paragraph
+       that spans a couple lines.
+
+     # This is the second item.
+
+     # This is the third item.
+
+       This is another paragraph in the third item.
+
+   This is another paragraph.
+
+Could be rendered in HTML as:
+
+   <p>This is a regular paragraph.</p>
+
+   <ol>
+     <li>
+       <p>This is the first item of a list consisting of one
+          paragraph that spans a couple lines.</p>
+     </li>
+
+     <li>
+       <p>This is the second item.</p>
+     </li>
+
+     <li>
+       <p>This is the third item.</p>
+
+       <p>This is another paragraph in the third item.</p>
+     </li>
+   </ol>
+
+   <p>This is another paragraph.</p>
+
+*** Links
+
+A Markup processor can optionally support a few bits of syntax to make
+it more convenient to add hyperlinks to a document. Within normal text
+(i.e. anywhere but a verbatim section) a link can be indicated by
+enclosing the text to act as the hyperlink with \code{\[]}s. This maps
+to an element tagged \code{link}. If the text between the \code{\[]}s
+includes a \code{|}, the text after the \code{|} is wrapped in a
+\code{key} element.
+
+A paragraph consisting solely of text in \code{\[]}s followed by zero
+or more spaces followed by text enclosed in \code{<>}s is parsed as an
+element tagged \code{link_def} whose two children are a \code{link}
+element comprising the text between the \code{\[]}s and a \code{url}
+element comprising the text between the \code{<>}s.\note{The idea is
+that a Markup backend would render all the in-text \code{link}
+elements as hyperlinks with the \code{link} text linking to the URL
+given in the corresponding \code{link_def} element.} A given Markup
+processor can choose to implement the link syntax or not and, if it
+does, may provide a way to indicate whether or not it should be used
+when parsing a given document.
+
+*** Tagged markup
+
+For all other markup, Markup uses the TeX-like notation
+\code{\\\i{tagname}\{\i{stuff}\}}. Tag names can consist of letters,
+numbers, ‘\code{-}’, ‘\code{.}’, and ‘\code{+}’. Tagged markup can
+nest so you can have:
+
+   \i{italic with \b{some bold added} and back to just italic}
+
+An element created from tagged markup is tagged with the tagname.
+
+Certain tag names can be used to mark sub-documents which are parsed
+differently than simple spans of text. The content of a
+sub-document—between the opening and closing \{\}s—is parsed like a
+document so it will contain at least one paragraph and can contain
+headers, block quotes, lists, verbatim sections, and even nested
+sub-documents. Footnotes, for example, are commonly set up to be parsed
+as sub-documents. For example:
+
+   This is an example paragraph.\note{This is a footnote whose
+   reference will appear right after the period before ‘paragraph’.
+
+   This is a second paragraph of the footnote.} Now back to the main
+   paragraph.
+
+Note that the blank line separating the paragraphs of the sub-document
+has no effect on the enclosing paragraph.
+
+If a sub-document is embedded in a paragraph that is part of an
+indented section (i.e. a block quote or a list) then subsequent lines
+of the sub-document should be indented the same as the enclosing
+paragraph:
+
+   This is a regular paragraph.
+
+     This is a block quote.\note{This is a footnote within the
+     block quote.
+
+     This is a second paragraph in the footnote.} Back to the
+     block quote paragraph.
+
+A Markup processor will need to provide some more or less convenient
+way to specify that certain tag names should be parsed as
+sub-documents rather than character markup.
+
+
+*** Escapes
+
+Outside of verbatim sections, a backslash can escape any character
+that is not a legal tag name character, stripping it of its syntactic
+significance. The characters \code{\\}, \code{\{}, and \code{\}} must
+be escaped whenever they appear outside a verbatim section if they are
+to be part of the text. Other non-tag-name characters may be escaped
+anytime, but it is only necessary when they would otherwise have
+syntactic significance. For example, \code{*} does not need to be
+escaped except at the beginning of a paragraph, where it would
+otherwise mark the paragraph as a header.
+
+   * This is a header
+
+   \* This is a paragraph that starts with * (note no escape here)
+   that contains a backslash: \\, an open brace: \{, and a close
+   brace: \}
+
+     \# This is a block quote paragraph starting with #, not a list.
+
+*** One last (optional) convenience
+
+In the real world, Markup documents are often (usually) edited in
+Emacs. Emacs has a mechanism whereby a a line starting with \code{-*-}
+indicates a \i{mode line} which tells emacs about how to edit the
+file. For instance, in the Markup sources of this specification, the
+first line is:
+
+   -*- mode: markup; -*-
+
+A Markup parser can choose to strip such modelines at the top level of
+a document to save having to strip them out later in processing.
+
+** Trivial XML backend
+
+A complete Markup system consists of a parser that can parse a text
+file in Markup syntax into a data structure representing the resulting
+abstract syntax tree and one or more back-ends that can render such a
+tree into some other form. For the purposes of testing we specify a
+trivial mapping from a Markup abstract tree to well-formed XML: each
+Markup element is mapped to an XML element with the same name and with
+the node children mapped to XML in the same way and string children as
+text. Thus:
+
+   * Header 1
+
+   ** Header 2
+
+   Regular paragraph. With \i{italic} text.
+
+maps to (indentation for clarity):
+
+   <body>
+     <h1>Header 1</h1>
+     <h2>Header 2</h2>
+     <p>Regular paragraph. With <i>italic</i> text.</p>
+   </body>
+
+
+
+   

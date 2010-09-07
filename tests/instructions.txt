@@ -1,0 +1,152 @@
+-*- mode: markup; -*-
+
+* Code Challenge: Markup
+
+  These are the instructions for the first \i{Code Quarterly} Code
+  Challenge. You can [read more|challenges] about the purpose of these
+  Code Challenges if you don’t know what this is all about. Or, if
+  you’ve already read these instructions and written your code, you can
+  [\b{submit}] it.
+
+The code challenge for our inaugural issue is to implement a parser
+for Markup, a lightweight markup language similar to Markdown and
+reStructuredText. Markup is designed to be editable in a plain text
+editor\note{At least to the extent that Emacs can be considered a
+plain text editor.} and to allow for arbitrary logical
+markup.\note{The focus on logical markup is the main difference
+between Markup and Markdown and reStructuredText. There doesn’t seem
+to be any way to do that kind of logical markup in Markdown. In
+reStructuredText you can use “Interpreted Text” for logical markup.
+However unlike reStructuredText, Markup uses the same syntax for all
+character-level markup, minimizing the number of characters that have
+to be escaped otherwise.
+
+Markup also differs from Markdown in that it is defined as a syntax
+that maps to an abstract tree rather than as a text format that maps
+to HTML. Thus Markup can be used for things other than generating
+HTML. In this respect it is more like reStructuredText.}
+
+A complete Markup processor consists of a parser that parses text
+files into some generic tree data structure representing the logical
+structure of the document and then one or more back-ends that given
+such a data structure can render it in some way, e.g. HTML, PDF, TeX,
+RTF, etc. For this challenge you need to implement only the parser,
+the data structure it returns, and a simple XML backend.
+
+Like many real-world programming tasks, there are lots of ways to
+write code that meets the spec but there are enough corner cases that
+a lot of those ways turn into fairly ugly messes pretty
+quickly.\note{Trust me, I’ve written enough ugly versions to be pretty
+sure about this —Editor}
+
+** The task
+
+Your challenge, should you choose to accept it, is to provide:
+
+  # The source code to a parser that, given the contents of a file in
+    whatever form is natural for your language of choice—perhaps as an
+    open stream or a string—returns a data structure representing the
+    document tree as described in the [Markup specification] if the
+    file is syntactically correct.
+
+  # English language documentation for the data structure returned by
+    the parser sufficient to allow a programmer familiar with your
+    implementation language to write a back-end that generates some
+    kind of output from the results returned by the parser.
+
+  # The source code to a sample back-end that generates well-formed
+    XML according to the “Trivial XML backend” section of the
+    spec.\note{We don’t use XML because we have any great love for it
+    but because it is a reasonable lowest-common-denominator format.}
+  
+  # The source code to a driver program that, given the name of a
+    file, parses the file and then generates a corresponding XML file.
+
+  # Any libraries you use beyond those that are normally part of an
+    installation of your chosen programming language.
+
+  # Any build instructions or scripts are needed to build the driver
+    program or instructions how to run it if it requires no separate
+    building.
+
+  # Optionally, any notes about your experience implementing this
+    code: how you came up with your design, blind alleys you went up,
+    or surprising problems you ran into. Or anything else you want to
+    share.
+
+You may implement your program in whatever programming language you
+want for whatever hardware platform and OS you like. However, all
+other things being equal, we’d rather get code that we can run on
+GNU/Linux, OS X, or Windows on x86 or x86-64 hardware unless there is
+a very compelling reason to choose a different platform.
+
+The driver program can be a command line program, a GUI, or—for
+languages that provide some kind of interactive environment—a function
+that can be called with the name of the file to parse.
+
+** Issues with the spec
+
+Like many real-world specs, this task specification as well as the
+Markup specification itself are almost certainly not perfect. As this
+is not life-critical software, you are free to use your best judgement
+to fill in any gaps that you discover. Or you may send queries to
+\email{code@codequarterly.com} and we’ll try to answer your questions
+as quickly as we can. Or you can [leave a comment|comments].
+
+One notable gap in the spec is the omission of anything about what to
+do if you are asked to parse a file that is \i{not} syntactically
+correct Markup. It wouldn’t be unreasonable—mostly in order to keep
+this challenge from being too much work—to simply treat being asked to
+parse malformed input as an unspecified, anything-can-happen,
+demons-will-probably-come-out-of-your-nose situation. But if you want
+to write production quality code and come up with clever ways of
+giving precise and useful error messages or otherwise deal more
+gracefully with bad input, more power to you.
+
+** Okay, I accept your challenge
+
+Great! There are two ways to get started. You can download an archive
+containing these instructions, as well as all the specification files
+and test cases you’ll need. The archive is available in [tar.gz] and
+[zip]. Or, if you have a GitHub account and don’t mind operating
+somewhat in public, you fork our project at:
+
+  \url{http://github.com/codequarterly/cq-challenge-markup/}
+
+It contains the same files you would get if you downloaded the
+challenge archive. You can then track the history of your development
+using git, which may be just as interesting as your final result.
+
+When you’re ready to submit your code, you’ll need to create either a
+\code{tar.gz}, or a \code{zip} archive containing all your files and
+[upload it here|submit] or [submit] the URL of a GitHub commit
+containing the code you want to submit.
+
+In the meantime you can leave a question or comment or discuss this
+challenge with other participants on our [comments] page.
+
+** The fine print
+
+Since we intend to publish the code on our web site and will discuss
+some of the code in our article we need sufficient rights to republish
+your code in its entirety. When you are ready to submit your code, you
+will need to agree to [some terms] giving us the rights we need.
+Beyond that, your code is yours to do with as you see fit.
+
+Good luck and happy coding!
+
+[challenges] </code-challenges/>
+
+[markup specification] <markup-spec.html>
+
+[tar.gz] <cq-challenge-markup.tar.gz>
+
+[zip] <cq-challenge-markup.zip>
+
+[submit] <submit.html>
+
+[some terms] <terms.html>
+
+[github] <http://www.github.com/>
+
+[comments] <comments/>
